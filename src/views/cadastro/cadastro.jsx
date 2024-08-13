@@ -1,4 +1,5 @@
-import React, { useState }  from 'react';
+import React, { useState } from 'react';
+import axios from "axios";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { formSchema } from '../../validation/cadastroValidation';
@@ -13,17 +14,26 @@ const Cadastro = () => {
     const [locaisEntrega, setLocaisEntrega] = useState([{ cidade: '' }]);
 
     const onSubmit = data => {
-        console.log(data);
+        axios.post('http://localhost:8080/api/restaurante', data)
+            .then(response => {
+                console.log('Dados enviados com sucesso:', response.data);
+                // Aqui você pode adicionar um redirecionamento ou mostrar uma mensagem de sucesso.
+            })
+            .catch(error => {
+                console.error('Erro ao enviar os dados:', error);
+                // Aqui você pode adicionar um tratamento de erro, como mostrar uma mensagem de erro.
+            });
     };
 
     const adicionarLocalEntrega = () => {
         setLocaisEntrega([...locaisEntrega, { cidade: '' }]);
-      };
+    };
 
-      const removerLocalEntrega = index => {
+    const removerLocalEntrega = index => {
         const novosLocaisEntrega = locaisEntrega.filter((_, i) => i !== index);
         setLocaisEntrega(novosLocaisEntrega);
-      };
+    };
+
 
     return (
         <div className="flex">
@@ -70,26 +80,26 @@ const Cadastro = () => {
                     <h4 className="text-2xl font-bold mb-6 mt-5 text-white">Informações gerais</h4>
                     <div className="flex space-x-4">
                         <div className="w-1/2 mb-4">
-                            <label className="block text-white mb-2" htmlFor="nomeResponsavel">Responsável</label>
+                            <label className="block text-white mb-2" htmlFor="nomeFantasia">Nome Fantasia</label>
                             <input
-                                {...register('nomeResponsavel')}
+                                {...register('nomeFantasia')}
                                 className="w-full px-3 py-2 border rounded-xl"
                                 placeholder="Insira o nome do responsável"
                                 type="text"
-                                id="nomeResponsavel"
+                                id="nomeFantasia"
                             />
-                            {errors.nomeResponsavel && <p className="text-red-500 text-sm">{errors.nomeResponsavel.message}</p>}
+                            {errors.nomeFantasia && <p className="text-red-500 text-sm">{errors.nomeFantasia.message}</p>}
                         </div>
                         <div className="w-1/2 mb-4">
-                            <label className="block text-white mb-2" htmlFor="nomeRestaurante">Nome do restaurante</label>
+                            <label className="block text-white mb-2" htmlFor="razaoSocial">Razão Social</label>
                             <input
-                                {...register('nomeRestaurante')}
+                                {...register('razaoSocial')}
                                 className="w-full px-3 py-2 border rounded-xl"
                                 placeholder="Insira o nome do restaurante"
                                 type="text"
-                                id="nomeRestaurante"
+                                id="razaoSocial"
                             />
-                            {errors.nomeRestaurante && <p className="text-red-500 text-sm">{errors.nomeRestaurante.message}</p>}
+                            {errors.razaoSocial && <p className="text-red-500 text-sm">{errors.razaoSocial.message}</p>}
                         </div>
                     </div>
 
@@ -106,15 +116,28 @@ const Cadastro = () => {
                             {errors.cnpj && <p className="text-red-500 text-sm">{errors.cnpj.message}</p>}
                         </div>
                         <div className="w-1/2 mb-4">
-                            <label className="block text-white mb-2" htmlFor="segmento">Segmento</label>
-                            <input
-                                {...register('segmento')}
+                            <label className="block text-white mb-2" htmlFor="categoria">Categoria</label>
+                            <select
+                                {...register('categoria')}
                                 className="w-full px-3 py-2 border rounded-xl"
-                                placeholder="Insira o segmento do restaurante"
-                                type="text"
-                                id="segmento"
-                            />
-                            {errors.segmento && <p className="text-red-500 text-sm">{errors.segmento.message}</p>}
+                                id="categoria"
+                            >
+                                <option value="">Selecione uma categoria</option>
+                                <option value="VEGETARIANO">Vegetariano</option>
+                                <option value="VEGANO">Vegano</option>
+                                <option value="ORGÂNICO">Orgânico</option>
+                                <option value="ITALIANO">Italiano</option>
+                                <option value="CHINÊS">Chinês</option>
+                                <option value="MEXICANO">Mexicano</option>
+                                <option value="JAPONÊS">Japonês</option>
+                                <option value="FRANCÊS">Francês</option>
+                                <option value="SUSHI">Sushi</option>
+                                <option value="PIZZARIA">Pizzaria</option>
+                                <option value="HAMBURGUERIA">Hamburgueria</option>
+                                <option value="CAFETERIA">Cafeteria</option>
+                                <option value="BISTRÔ">Bistrô</option>
+                            </select>
+                            {errors.categoria && <p className="text-red-500 text-sm">{errors.categoria.message}</p>}
                         </div>
                     </div>
                     <div className="flex space-x-6">
@@ -145,15 +168,15 @@ const Cadastro = () => {
                     <h4 className="text-2xl font-bold mb-6 mt-5 text-white">Endereço</h4>
                     <div className="flex space-x-4">
                         <div className="w-1/2 mb-4">
-                            <label className="block text-white mb-2" htmlFor="logradouro">Logradouro</label>
+                            <label className="block text-white mb-2" htmlFor="rua">Rua</label>
                             <input
-                                {...register('logradouro')}
+                                {...register('rua')}
                                 className="w-full px-3 py-2 border rounded-xl"
-                                placeholder="Insira o logradouro"
+                                placeholder="Insira o rua"
                                 type="text"
-                                id="logradouro"
+                                id="rua"
                             />
-                            {errors.logradouro && <p className="text-red-500 text-sm">{errors.logradouro.message}</p>}
+                            {errors.rua && <p className="text-red-500 text-sm">{errors.rua.message}</p>}
                         </div>
                         <div className="w-1/2 mb-4">
                             <label className="block text-white mb-2" htmlFor="bairro">Bairro</label>
@@ -193,15 +216,15 @@ const Cadastro = () => {
                     </div>
                     <div className="flex space-x-6">
                         <div className="w-1/2 mb-4">
-                            <label className="block text-white mb-2" htmlFor="uf">UF</label>
+                            <label className="block text-white mb-2" htmlFor="estado">Estado</label>
                             <input
-                                {...register('uf')}
+                                {...register('estado')}
                                 className="w-full px-3 py-2 border rounded-xl"
-                                placeholder="Insira o UF"
+                                placeholder="Insira o Estado"
                                 type="text"
-                                id="uf"
+                                id="estado"
                             />
-                            {errors.uf && <p className="text-red-500 text-sm">{errors.uf.message}</p>}
+                            {errors.estado && <p className="text-red-500 text-sm">{errors.estado.message}</p>}
                         </div>
                         <div className="w-1/2 mb-4">
                             <label className="block text-white mb-2" htmlFor="cep">CEP</label>
@@ -216,46 +239,46 @@ const Cadastro = () => {
                         </div>
                     </div>
                     <div className="mb-4">
-            <label className="block text-white mb-2">Locais de entrega</label>
-            {locaisEntrega.map((local, index) => (
-              <div key={index} className="flex space-x-4 mb-4">
-                <input
-                  {...register(`locaisEntrega.${index}.cidade`)}
-                  className="w-full px-3 py-2 border rounded-xl"
-                  placeholder="Insira o nome da cidade"
-                  type="text"
-                />
-                <input
-                  {...register(`locaisEntrega.${index}.taxa`)}
-                  className="w-full px-3 py-2 border rounded-xl"
-                  placeholder="Insira a taxa de entrega"
-                  type="text"
-                />
-                <button
-                  type="button"
-                  onClick={() => removerLocalEntrega(index)}
-                  className="text-red-500 hover:text-red-700"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-            ))}
-            <button
-              type="button"
-              onClick={adicionarLocalEntrega}
-              className="flex items-center text-white hover:text-gray-200"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 mr-2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-              </svg>
-              Adicionar cidade
-            </button>
-          </div>
+                        <label className="block text-white mb-2">Locais de entrega</label>
+                        {locaisEntrega.map((local, index) => (
+                            <div key={index} className="flex space-x-4 mb-4">
+                                <input
+                                    {...register(`locaisEntrega.${index}.cidade`)}
+                                    className="w-full px-3 py-2 border rounded-xl"
+                                    placeholder="Insira o nome da cidade"
+                                    type="text"
+                                />
+                                <input
+                                    {...register(`locaisEntrega.${index}.taxa`)}
+                                    className="w-full px-3 py-2 border rounded-xl"
+                                    placeholder="Insira a taxa de entrega"
+                                    type="text"
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => removerLocalEntrega(index)}
+                                    className="text-red-500 hover:text-red-700"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                        ))}
+                        <button
+                            type="button"
+                            onClick={adicionarLocalEntrega}
+                            className="flex items-center text-white hover:text-gray-200"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 mr-2">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                            </svg>
+                            Adicionar cidade
+                        </button>
+                    </div>
 
                     <button className="w-1/3 bg-green-500 text-white font-bold text-lg py-2 rounded-xl hover:bg-blue-700 mt-5">Cadastrar</button>
-                    <h6 className="block text-white mb-2">Já tem um cadastro? Faça o login</h6>
+                    
                 </form>
             </div>
             <div className="w-1/2">

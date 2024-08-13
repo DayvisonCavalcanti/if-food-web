@@ -12,7 +12,7 @@ function Cadastro() {
     const { state } = useLocation();
     const [idRestaurante, setIdRestaurante] = useState(null);
     const [email, setEmail] = useState('');
-    const [nomeResponsavel, setNomeResponsavel] = useState('');
+    const [razaoSocial, setRazaoSocial] = useState('');
     const [password, setPassword] = useState('');
 
     const { register, formState: { errors } } = useForm({
@@ -23,12 +23,12 @@ function Cadastro() {
 
     useEffect(() => {
         if (state != null && state.id != null) {
-            axios.get(`http://localhost:8080/restaurantes/${state.id}`)
+            axios.get(`http://localhost:8080/api/restaurante/${state.id}`)
                 .then((response) => {
-                    const { id, email, nomeResponsavel, password } = response.data;
+                    const { id, email, razaoSocial, password } = response.data;
                     setIdRestaurante(id);
                     setEmail(email);
-                    setNomeResponsavel(nomeResponsavel);
+                    setRazaoSocial(razaoSocial);
                     setPassword(password);
                 })
                 .catch((error) => {
@@ -42,7 +42,7 @@ function Cadastro() {
 
         if (idRestaurante != null) {
             // Alteração
-            axios.put(`http://localhost:8080/restaurantes/${idRestaurante}`, restauranteRequest)
+            axios.put(`http://localhost:8080/api/restaurante/${idRestaurante}`, restauranteRequest)
                 .then(() => {
                     console.log('Restaurante alterado com sucesso.');
                 })
@@ -55,7 +55,7 @@ function Cadastro() {
                 });
         } else {
             // Cadastro
-            axios.post('http://localhost:8080/restaurantes', restauranteRequest)
+            axios.post('http://localhost:8080/api/restaurante', restauranteRequest)
                 .then(() => {
                     console.log('Restaurante cadastrado com sucesso.');
                 })
@@ -85,15 +85,16 @@ function Cadastro() {
                     <h2 className="text-2xl font-bold mb-6">Cadastro</h2>
 
                     <div className="mb-4">
-                        <label className="block text-gray-700 mb-2" htmlFor="nome">Nome do Responsável</label>
+                        <label className="block text-gray-700 mb-2" htmlFor="nome">Razão Social</label>
                         <input
-                        {...register('nomeResponsavel')}
+                        {...register('razaoSocial')}
                             className="w-full px-3 py-2 border rounded-xl"
                             type="text"
-                            id="nomeResponsavel"
-                            value={nomeResponsavel}
-                            onChange={(e) => nomeResponsavel(e.target.value)}
+                            id="razaoSocial"
+                            value={razaoSocial}
+                            onChange={(e) => razaoSocial(e.target.value)}
                         />
+                        {errors.razaoSocial && <p className="text-red-500 text-sm">{errors.razaoSocial.message}</p>}
                     </div>
 
                     <div className="mb-4">
@@ -106,6 +107,7 @@ function Cadastro() {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
+                        {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
                     </div>
 
                     <div className="mb-4">
@@ -118,6 +120,7 @@ function Cadastro() {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
+                        {errors.senha && <p className="text-red-500 text-sm">{errors.senha.message}</p>}
                     </div>
 
                     <button

@@ -2,15 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { Icon } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const ListRestaurantes = () => {
-  const [nome, setNome] = useState('');
-  const [status, setStatus] = useState('');
-  const [categoria, setCategoria] = useState('');
+  const [nomeFantasia, setNomeFantasia] = useState('');
+  const [cnpj, setCnpj] = useState('');
+  const [categoriasEnum, setCategoriaEnum] = useState('');
   const [restaurantes, setRestaurantes] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://localhost:5000/restaurantes')
+    axios.get('http://localhost:8080/api/restaurante')
       .then(response => {
         setRestaurantes(response.data);
       })
@@ -19,23 +21,27 @@ const ListRestaurantes = () => {
       });
   }, []);
 
-  const handleNomeChange = (e) => {
-    setNome(e.target.value);
+  const handleNomeFantasiaChange = (e) => {
+    setNomeFantasia(e.target.value);
   };
 
-  const handleStatusChange = (e) => {
-    setStatus(e.target.value);
+  const handleCnpjChange = (e) => {
+    setCnpj(e.target.value);
   };
 
-  const handleCategoriaChange = (e) => {
-    setCategoria(e.target.value);
+  const handleCategoriaEnumChange = (e) => {
+    setCategoriaEnum(e.target.value);
   };
 
   const filteredRestaurantes = restaurantes.filter(restaurante =>
-    restaurante.nome.toLowerCase().includes(nome.toLowerCase()) &&
-    restaurante.status.toLowerCase().includes(status.toLowerCase()) &&
-    restaurante.categoria.toLowerCase().includes(categoria.toLowerCase())
+    restaurante.nomeFantasia.includes(nomeFantasia) &&
+    restaurante.cnpj.includes(cnpj) &&
+    restaurante.categoriasEnum.includes(categoriasEnum)
   );
+
+  const handleDetailsClick = (id) => {
+    navigate(`/restaurante-detalhes/${id}`);
+  };
 
   return (
     <div style={{ 
@@ -50,7 +56,6 @@ const ListRestaurantes = () => {
         flexDirection: 'column', 
         alignItems: 'center',
       }}>
-
         <div style={{ 
           display: 'flex', 
           justifyContent: 'space-between', 
@@ -61,13 +66,13 @@ const ListRestaurantes = () => {
           width: '90%', 
           marginBottom: '5px'
         }}>
-            <Icon name='search' style={{ marginRight: '10px', color: "#1C4F2A", fontSize: "2em" }} />
+          <Icon name='search' style={{ marginRight: '10px', color: "#1C4F2A", fontSize: "2em" }} />
           <div style={{ display: 'flex', alignItems: 'center', width: '30%' }}>
             <input
               type="text"
               placeholder="Buscar por Nome"
-              value={nome}
-              onChange={handleNomeChange}
+              value={nomeFantasia}
+              onChange={handleNomeFantasiaChange}
               style={{ 
                 paddingLeft: '10px', 
                 width: '100%', 
@@ -80,9 +85,9 @@ const ListRestaurantes = () => {
           <div style={{ display: 'flex', alignItems: 'center', width: '20%' }}>
             <input
               type="text"
-              placeholder="Buscar por Status"
-              value={status}
-              onChange={handleStatusChange}
+              placeholder="Buscar por CNPJ"
+              value={cnpj}
+              onChange={handleCnpjChange}
               style={{ 
                 paddingLeft: '10px', 
                 width: '100%', 
@@ -96,8 +101,8 @@ const ListRestaurantes = () => {
             <input
               type="text"
               placeholder="Buscar por Categoria"
-              value={categoria}
-              onChange={handleCategoriaChange}
+              value={categoriasEnum}
+              onChange={handleCategoriaEnumChange}
               style={{ 
                 paddingLeft: '10px', 
                 width: '100%', 
@@ -120,17 +125,21 @@ const ListRestaurantes = () => {
           <table style={{ backgroundColor: 'white', width: '100%', borderRadius: '10px' }}>
             <thead>
               <tr>
-                <th style={{ border: '1px #ddd', padding: '8px', color: "#1C4F2A" }}>Nome</th>
-                <th style={{ border: '1px #ddd', padding: '8px', color: "#1C4F2A" }}>Status</th>
-                <th style={{ border: '1px #ddd', padding: '8px', color: "#1C4F2A" }}>Categoria</th>
+                <th style={{ border: '1px solid #ddd', padding: '8px', color: "#1C4F2A" }}>Nome Fantasia</th>
+                <th style={{ border: '1px solid #ddd', padding: '8px', color: "#1C4F2A" }}>CNPJ</th>
+                <th style={{ border: '1px solid #ddd', padding: '8px', color: "#1C4F2A" }}>Categoria</th>
+                <th style={{ border: '1px solid #ddd', padding: '8px', color: "#1C4F2A" }}>Detalhes</th>
               </tr>
             </thead>
             <tbody>
-              {filteredRestaurantes.map((restaurante, index) => (
-                <tr key={index}>
-                  <td style={{ border: '1px #ddd', padding: '8px' }}>{restaurante.nome}</td>
-                  <td style={{ border: '1px #ddd', padding: '8px' }}>{restaurante.status}</td>
-                  <td style={{ border: '1px #ddd', padding: '8px' }}>{restaurante.categoria}</td>
+              {filteredRestaurantes.map((restaurante) => (
+                <tr key={restaurante.id}>
+                  <td style={{ border: '1px solid #ddd', padding: '8px' }}>{restaurante.nomeFantasia}</td>
+                  <td style={{ border: '1px solid #ddd', padding: '8px' }}>{restaurante.cnpj}</td>
+                  <td style={{ border: '1px solid #ddd', padding: '8px' }}>{restaurante.categoriasEnum}</td>
+                  <td style={{ border: '1px solid #ddd', padding: '8px', textAlign: 'center' }}>
+                    <Icon name='plus' style={{ cursor: 'pointer', color: "#BA913F" }} onClick={() => handleDetailsClick(restaurante.id)} />
+                  </td>
                 </tr>
               ))}
             </tbody>
