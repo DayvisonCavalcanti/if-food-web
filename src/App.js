@@ -10,6 +10,12 @@ import SenhaAtualizada from './views/login/SenhaAtualizada'
 import CadastroInicial from './views/cadastro/CadastroInicial';
 import ConfirmarCadastro from './views/cadastro/ConfirmarCadastro';
 import Cadastro from './views/cadastro/Cadastro';
+import HomeParceiros from './views/home/HomeParceiros';
+import NovoItem from './views/cardapio/novoItem'
+import NovaCategoria from './views/cardapio/novaCategoria';
+
+import Cardapio from "./views/cardapio/cardapio";
+
 
 
 
@@ -20,7 +26,7 @@ function App() {
       <Routes>
 
         {/*rotas login*/}
-        <Route path='/' element={<Login />} />
+        <Route path='login' element={<Login />} />
         <Route path='/recuperacao-senha' element={<RecuperacaoSenha />} />
         <Route path='/confirmar-email' element={<ConfirmarEmail />} />
         <Route path='/nova-senha' element={<NovaSenha />} />
@@ -30,7 +36,16 @@ function App() {
        <Route path='/cadastro-inicial' element={<CadastroInicial />} />
        <Route path='/cadastro' element={< Cadastro/>} />
        <Route path='/confirmar-cadastro' element={< ConfirmarCadastro/>} />
-        
+
+       {/*rotas home*/}
+       <Route path='home-parceiros' element={< HomeParceiros/>} />
+
+       {/*rotas cardapio*/}
+       <Route path='novo-item' element={< NovoItem/>} />
+       <Route path='nnnn' element={< NovaCategoria/>} />
+      
+       {/*rotas restaurante*/}
+        <Route path='cardapio' element={<Cardapio/>}/> 
       </Routes>
     </Router>
 

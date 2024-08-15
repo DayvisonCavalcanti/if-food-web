@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import 'tailwindcss/tailwind.css';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import 'tailwindcss/tailwind.css';
 
 import App from './App';
 
@@ -10,7 +10,7 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <div className='bg-gradient-to-t from-[#1F2026] via-black to-[#37383F]'>
+  <div className=' bg-gradient-to-t from-[#1F2026] via-#1c1918 to-[#37383F]'>
     <React.StrictMode>
       <App/>
     </React.StrictMode>
