@@ -6,7 +6,7 @@
     ],
 
     "restaurantes": [
-        {"nome": "Bar da Galega", "status": "Ativo", "categoria": "Salada"}
+        { "id":"1", "nome": "Bar da Galega", "status": "Ativo", "categoria": "Salada"}
     ]
   }
   

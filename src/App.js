@@ -1,38 +1,26 @@
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
-import Login from "./views/login/Login";
-import RecuperacaoSenha from './views/login/RecuperacaoSenha';
 import ConfirmarEmail from './views/login/ConfirmarEmail';
+import Login from "./views/login/Login";
 import NovaSenha from './views/login/NovaSenha';
-import SenhaAtualizada from './views/login/SenhaAtualizada'
+import RecuperacaoSenha from './views/login/RecuperacaoSenha';
+import SenhaAtualizada from './views/login/SenhaAtualizada';
 
 import CadastroInicial from './views/cadastro/CadastroInicial';
 import ConfirmarCadastro from './views/cadastro/ConfirmarCadastro';
-import Cadastro from './views/cadastro/Cadastro';
-import HomeParceiros from './views/home/HomeParceiros';
-import NovoItem from './views/cardapio/novoItem'
+import Cadastro from './views/cadastro/cadastro';
 import NovaCategoria from './views/cardapio/novaCategoria';
+import NovoItem from './views/cardapio/novoItem';
+import HomeParceiros from './views/home/HomeParceiros';
 
 import Cardapio from "./views/cardapio/cardapio";
-
-
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-import Login from "./views/login/Login";
-import RecuperacaoSenha from './views/login/RecuperacaoSenha';
-import ConfirmarEmail from './views/login/ConfirmarEmail';
-import NovaSenha from './views/login/NovaSenha';
-import SenhaAtualizada from './views/login/SenhaAtualizada'
-
-import CadastroInicial from './views/cadastro/CadastroInicial';
-import ConfirmarCadastro from './views/cadastro/ConfirmarCadastro';
-import Home from './views/Admin/Home';
-
 import ListClientes from './views/Admin/ListClientes';
 import ListRestaurantes from './views/Admin/ListRestaurantes';
-import Cadastro from './views/cadastro/cadastro';
 import RestauranteDetalhes from './views/Admin/RestauranteDetalhes';
+
+
+
 
 
 
@@ -65,6 +53,14 @@ function App() {
       
        {/*rotas restaurante*/}
         <Route path='cardapio' element={<Cardapio/>}/> 
+
+
+       {/*rotas admin*/}
+        <Route path='list-clientes' element={<ListClientes/>}/> 
+        <Route path='list-restaurantes' element={<ListRestaurantes/>}/> 
+        <Route path="restaurante-detalhes/:id" element={< RestauranteDetalhes/>} />
+
+
       </Routes>
     </Router>
 

@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { formSchema } from '../../validation/cadastroValidation';
 
-function Cadastro() {
+function CadastroInicial() {
     const { state } = useLocation();
     const [idRestaurante, setIdRestaurante] = useState(null);
     const [email, setEmail] = useState('');
@@ -92,7 +92,7 @@ function Cadastro() {
                             type="text"
                             id="razaoSocial"
                             value={razaoSocial}
-                            onChange={(e) => razaoSocial(e.target.value)}
+                            onChange={(e) => setRazaoSocial(e.target.value)}
                         />
                         {errors.razaoSocial && <p className="text-red-500 text-sm">{errors.razaoSocial.message}</p>}
                     </div>
@@ -138,4 +138,4 @@ function Cadastro() {
     );
 }
 
-export default Cadastro;
+export default CadastroInicial;

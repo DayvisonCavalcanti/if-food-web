@@ -1,11 +1,11 @@
 import React from 'react';
 import { FaChartLine } from 'react-icons/fa';
 import { IoMdRestaurant } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 import '../../../src/index.css';
 import gerencieCardapio from '../../assets/gerencieCardapio.png';
 import gerenciePedidos from '../../assets/gerenciePedidos.png';
 import logo from '../../assets/iffood.png'; // Substitua pelo caminho correto da sua logo
-import { Link } from 'react-router-dom';
 import Sidebar from './Sidebar';
 
 
@@ -30,7 +30,7 @@ const cardsData = [
 function HomeParceiros() {
     return (
         <div className="flex flex-col h-screen">
-            <div className="flex flex-1 overflow-hidden">
+            <div className="flex flex-1 overflow-hidden ">
                 {/* Sidebar */}
                 <Sidebar />
 

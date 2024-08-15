@@ -125,19 +125,19 @@ const ListRestaurantes = () => {
           <table style={{ backgroundColor: 'white', width: '100%', borderRadius: '10px' }}>
             <thead>
               <tr>
-                <th style={{ border: '1px solid #ddd', padding: '8px', color: "#1C4F2A" }}>Nome Fantasia</th>
-                <th style={{ border: '1px solid #ddd', padding: '8px', color: "#1C4F2A" }}>CNPJ</th>
-                <th style={{ border: '1px solid #ddd', padding: '8px', color: "#1C4F2A" }}>Categoria</th>
-                <th style={{ border: '1px solid #ddd', padding: '8px', color: "#1C4F2A" }}>Detalhes</th>
+                <th style={{ border: '1px #ddd', padding: '8px', color: "#1C4F2A" }}>Nome Fantasia</th>
+                <th style={{ border: '1px #ddd', padding: '8px', color: "#1C4F2A" }}>CNPJ</th>
+                <th style={{ border: '1px #ddd', padding: '8px', color: "#1C4F2A" }}>Categoria</th>
+                <th style={{ border: '1px #ddd', padding: '8px', color: "#1C4F2A" }}>Detalhes</th>
               </tr>
             </thead>
             <tbody>
               {filteredRestaurantes.map((restaurante) => (
                 <tr key={restaurante.id}>
-                  <td style={{ border: '1px solid #ddd', padding: '8px' }}>{restaurante.nomeFantasia}</td>
-                  <td style={{ border: '1px solid #ddd', padding: '8px' }}>{restaurante.cnpj}</td>
-                  <td style={{ border: '1px solid #ddd', padding: '8px' }}>{restaurante.categoriasEnum}</td>
-                  <td style={{ border: '1px solid #ddd', padding: '8px', textAlign: 'center' }}>
+                  <td style={{ border: '1px #ddd', padding: '8px' }}>{restaurante.nomeFantasia}</td>
+                  <td style={{ border: '1px #ddd', padding: '8px' }}>{restaurante.cnpj}</td>
+                  <td style={{ border: '1px #ddd', padding: '8px' }}>{restaurante.categoriasEnum}</td>
+                  <td style={{ border: '1px #ddd', padding: '8px', textAlign: 'center' }}>
                     <Icon name='plus' style={{ cursor: 'pointer', color: "#BA913F" }} onClick={() => handleDetailsClick(restaurante.id)} />
                   </td>
                 </tr>

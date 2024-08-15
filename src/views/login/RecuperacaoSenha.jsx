@@ -57,7 +57,7 @@ function RecuperacaoSenha() {
                         <button  style={{ backgroundColor: '#24A645' }} className="w-2/4  text-white py-2 rounded-xl text-xl hover:bg-blue-700" >Enviar</button>
                         
 
-                        <p className="px-3 mt-3 text-white text-xs ">Não tem uma Conta? <a className="underline" href="https://tailwindcss.com/docs/margin">Faça seu Cadastro.</a></p>
+                        <p className="px-3 mt-3 text-white text-xs ">Não tem uma Conta? <a className="underline" href="../cadastro-inicial">Faça seu Cadastro.</a></p>
                     </form>
                 </div>
             </div>
