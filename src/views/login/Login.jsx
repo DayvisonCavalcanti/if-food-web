@@ -1,19 +1,21 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import iffood from "../../assets/iffood.png";
 import { formSchema } from '../../validation/LoginValidation';
-import CadastroInicial from '../cadastro/CadastroInicial'
+
 
 function Login() {
 
+    const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(formSchema),
     });
 
     const onSubmit = data => {
         console.log(data);
+        navigate('/home-parceiros')
     };
 
     return (
@@ -50,9 +52,10 @@ function Login() {
                             <input
                                 className="w-full px-3 py-2 border rounded-xl text-xl"
                                 {...register('senha')}
-                                type="senha"
+                                type="password"
                                 id="senha"
                                 Placeholder="Insira sua Senha"
+                                maxLength={16}
                             />
                             {errors.senha && <p className="text-red-500 text-sm">{errors.senha.message}</p>}
                             <Link
@@ -62,7 +65,12 @@ function Login() {
                             </Link>
                         </div>
 
-                        <button style={{ backgroundColor: '#24A645' }} className="w-2/4  text-white py-2 rounded-xl text-xl hover:bg-blue-700">Continuar</button>
+                        <button
+                            type='submit'
+                            style={{ backgroundColor: '#24A645' }}
+                            className="w-2/4  text-white py-2 rounded-xl text-xl hover:bg-blue-700">
+                            Continuar
+                        </button>
 
                         <div className="px-2 mt-3 text-white text-xs ">
                             <Link to='../cadastro-inicial' >

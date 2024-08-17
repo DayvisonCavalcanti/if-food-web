@@ -6,7 +6,7 @@ import '../../../src/index.css';
 import gerencieCardapio from '../../assets/gerencieCardapio.png';
 import gerenciePedidos from '../../assets/gerenciePedidos.png';
 import logo from '../../assets/iffood.png'; // Substitua pelo caminho correto da sua logo
-import Sidebar from './Sidebar';
+import Sidebar from '../../componentes/Sidebar';
 
 
 const cardsData = [
@@ -122,9 +122,9 @@ function HomeParceiros() {
             </div>
 
             {/* Footer */}
-            <div className="bg-gray-800 text-white text-center p-2">
-                <p className="text-sm">&copy; 2024 ifFood. Todos os direitos reservados.</p>
-            </div>
+            <footer className="bg-gradient-to-t from-[#1F2026] via-#1c1918 to-[#37383F] text-secondary_3 py-4 text-center">
+                <p>&copy; 2024 Seu Restaurante. Todos os direitos reservados.</p>
+            </footer>
         </div>
     );
 };

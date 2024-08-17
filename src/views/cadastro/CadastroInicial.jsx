@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState }  from 'react';
 import { useNavigate } from 'react-router-dom';
 import iffood from "../../assets/iffood.png";
-import imagem1 from "../../assets/imagem1.png";
+import imagem1 from "../../assets/img1.png";
 import { useLocation } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';

@@ -40,13 +40,13 @@ const Cadastro = () => {
 
 
     return (
-        <div className="flex">
-            <div className="w-1/2 flex flex-col items-center justify-center">
-                <div className="mb-1">
+        <div className="flex ">
+            <div className="w-screen flex flex-col items-center justify-center">
+                <div className="mb-4 mt-4">
                     <img
                         src={iffood}
                         alt="If Food Logo"
-                        className="w-40 h-40 object-contain"
+                        className="w-52 h-52 object-contain"
                     />
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)} className="p-1 rounded-lg shadow-lg w-5/6">
@@ -54,7 +54,7 @@ const Cadastro = () => {
 
                     <div class="col-span-full">
                         <label for="photo" class="block text-sm font-medium leading-6 text-white">Adicione uma foto</label>
-                        <div class="mt-1 flex items-center gap-x-3">
+                        <div class="mt-1 flex items-center gap-x-3 mb-4">
                             <svg class="h-24 w-24 text-gray-300" viewBox="0 0 22 22" fill="currentColor" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clip-rule="evenodd" />
                             </svg>
@@ -287,17 +287,11 @@ const Cadastro = () => {
                         </button>
                     </div>
 
-                    <button className="w-1/3 bg-green-500 text-white font-bold text-lg py-2 rounded-xl hover:bg-blue-700 mt-5">Cadastrar</button>
+                    <button className="w-1/3 bg-secondary_1 text-white font-bold text-xl py-2 rounded-xl hover:bg-secondary_2 mt-5 mb-4">Cadastrar</button>
                     
                 </form>
             </div>
-            <div className="w-1/2">
-                <img
-                    src={imagem1}
-                    alt="Placeholder"
-                    className="w-full h-full object-cover"
-                />
-            </div>
+            
         </div>
     );
 }

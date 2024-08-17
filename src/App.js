@@ -33,7 +33,7 @@ function App() {
       <Routes>
 
         {/*rotas login*/}
-        <Route path='login' element={<Login />} />
+        <Route path='/' element={<Login />} />
         <Route path='/recuperacao-senha' element={<RecuperacaoSenha />} />
         <Route path='/confirmar-email' element={<ConfirmarEmail />} />
         <Route path='/nova-senha' element={<NovaSenha />} />
