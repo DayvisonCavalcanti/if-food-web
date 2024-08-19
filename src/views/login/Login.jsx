@@ -1,9 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import iffood from "../../assets/iffood.png";
 import { formSchema } from '../../validation/LoginValidation';
+import { registerSuccessfulLoginForJwt } from '../util/AuthenticationService';
 
 
 function Login() {
@@ -15,8 +17,38 @@ function Login() {
 
     const onSubmit = data => {
         console.log(data);
-        navigate('/home-parceiros')
+        //navigate('/home-parceiros')
     };
+
+
+
+    const [username, setUsername] = useState('');
+    const [senha, setSenha] = useState('');
+
+    function entrar() {
+
+        if (username !== '' && senha !== '') {
+
+            let authenticationRequest = {
+                username: username,
+                password: senha,
+            }
+
+            axios.post("http://localhost:8080/api/auth", authenticationRequest)
+                .then((response) => {
+
+                    registerSuccessfulLoginForJwt(response.data.token, response.data.expiration)
+                    navigate("/home-parceiros");
+
+                })
+                .catch((error) => {
+
+                    //notifyError('Usuário não encontrado')
+                    console.log('Usuário não encontrado')
+                })
+        }
+    }
+
 
     return (
         <div className="h-screen  flex items-center justify-center">
@@ -40,7 +72,9 @@ function Login() {
                                 {...register('email')}
                                 type="email"
                                 id="email"
-                                Placeholder="Insira seu e-mail"
+                                value={username}
+                                onChange={e => setUsername(e.target.value)}
+                                placeholder="Insira seu e-mail"
                             />
                             {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
                         </div>
@@ -54,7 +88,9 @@ function Login() {
                                 {...register('senha')}
                                 type="password"
                                 id="senha"
-                                Placeholder="Insira sua Senha"
+                                value={senha}
+                                onChange={e => setSenha(e.target.value)}
+                                placeholder="Insira sua Senha"
                                 maxLength={16}
                             />
                             {errors.senha && <p className="text-red-500 text-sm">{errors.senha.message}</p>}
@@ -66,6 +102,7 @@ function Login() {
                         </div>
 
                         <button
+                            onClick={() => entrar()}
                             type='submit'
                             style={{ backgroundColor: '#24A645' }}
                             className="w-2/4  text-white py-2 rounded-xl text-xl hover:bg-blue-700">

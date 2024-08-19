@@ -4,7 +4,7 @@ import 'tailwindcss/tailwind.css';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
-import App from './App';
+import Rotas from './Rotas';
 
 
 
@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div className=' bg-gradient-to-t from-[#1F2026] via-#1c1918 to-[#37383F]'>
     <React.StrictMode>
-      <App/>
+      <Rotas/>
     </React.StrictMode>
   </div>
 );

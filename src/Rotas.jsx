@@ -19,14 +19,7 @@ import ListClientes from './views/Admin/ListClientes';
 import ListRestaurantes from './views/Admin/ListRestaurantes';
 import RestauranteDetalhes from './views/Admin/RestauranteDetalhes';
 
-
-
-
-
-
-
-
-function App() {
+function Rotas() {
   return (
   
     <Router>
@@ -67,4 +60,4 @@ function App() {
   );
 }
 
-export default App;
+export default Rotas;
