@@ -18,6 +18,7 @@ import Cardapio from "./views/cardapio/cardapio";
 import ListClientes from './views/Admin/ListClientes';
 import ListRestaurantes from './views/Admin/ListRestaurantes';
 import RestauranteDetalhes from './views/Admin/RestauranteDetalhes';
+import GerenciarPedidos from './views/pedidos/GerenciarPedidos';
 
 function Rotas() {
   return (
@@ -47,6 +48,9 @@ function Rotas() {
        {/*rotas restaurante*/}
         <Route path='cardapio' element={<Cardapio/>}/> 
 
+        {/*Pedidos*/}
+        GerenciarPedidos
+        <Route path='gerenciar-pedidos' element={<GerenciarPedidos/>}/> 
 
        {/*rotas admin*/}
         <Route path='list-clientes' element={<ListClientes/>}/> 
