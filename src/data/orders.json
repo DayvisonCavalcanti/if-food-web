@@ -1,0 +1,280 @@
+[
+  {
+    "id": "#6001",
+    "status": "Pendente",
+    "time": "0 min",
+    "deliveryTime": "14:00",
+    "address": "Rua dos Girassóis, 123, Jardim das Flores - São Paulo/SP - CEP 12345-678",
+    "items": [
+      {
+        "name": "Saint Peter ao Molho de Limão Siciliano",
+        "price": "R$ 32,99"
+      }
+    ],
+    "subtotal": "R$ 32,99",
+    "paymentMethod": "Pagamento pelo aplicativo (online)"
+  },
+  {
+    "id": "#6002",
+    "status": "Pendente",
+    "time": "0 min",
+    "deliveryTime": "14:15",
+    "address": "Rua das Acácias, 456, Parque do Sol - Rio de Janeiro/RJ - CEP 23456-789",
+    "items": [
+      {
+        "name": "Peito de Frango ao Molho de Mostarda e Mel",
+        "price": "R$ 28,99"
+      }
+    ],
+    "subtotal": "R$ 28,99",
+    "paymentMethod": "Pagamento pelo aplicativo (online)"
+  },
+  {
+    "id": "#6003",
+    "status": "Pendente",
+    "time": "0 min",
+    "deliveryTime": "14:30",
+    "address": "Avenida das Palmeiras, 789, Centro - Belo Horizonte/MG - CEP 34567-890",
+    "items": [
+      {
+        "name": "Salmão ao Molho de Maracujá com Risoto de Cogumelos",
+        "price": "R$ 34,99"
+      },
+      {
+        "name": "Bruschetta de Tomate e Manjericão",
+        "price": "R$ 15,99"
+      }
+    ],
+    "subtotal": "R$ 50,98",
+    "paymentMethod": "Pagamento pelo aplicativo (online)"
+  },
+  {
+    "id": "#6004",
+    "status": "Pendente",
+    "time": "0 min",
+    "deliveryTime": "14:45",
+    "address": "Rua dos Cedros, 101, Vila Nova - Curitiba/PR - CEP 45678-901",
+    "items": [
+      {
+        "name": "Filet Mignon ao Molho de Vinho Tinto",
+        "price": "R$ 39,99"
+      },
+      {
+        "name": "Batatas Rústicas",
+        "price": "R$ 12,99"
+      },
+      {
+        "name": "Salada Caesar",
+        "price": "R$ 18,99"
+      }
+    ],
+    "subtotal": "R$ 71,97",
+    "paymentMethod": "Pagamento pelo aplicativo (online)"
+  },
+  {
+    "id": "#6005",
+    "status": "Pendente",
+    "time": "0 min",
+    "deliveryTime": "15:00",
+    "address": "Rua das Orquídeas, 202, Jardim das Acácias - Porto Alegre/RS - CEP 56789-012",
+    "items": [
+      {
+        "name": "Linguine ao Molho de Tomate e Manjericão com Camarões",
+        "price": "R$ 29,99"
+      }
+    ],
+    "subtotal": "R$ 29,99",
+    "paymentMethod": "Pagamento pelo aplicativo (online)"
+  },
+  {
+    "id": "#6006",
+    "status": "Em preparo",
+    "time": "10 min",
+    "deliveryTime": "15:30",
+    "address": "Rua dos Eucaliptos, 303, Vila dos Pássaros - Salvador/BA - CEP 67890-123",
+    "items": [
+      {
+        "name": "Saint Peter ao Molho de Limão Siciliano",
+        "price": "R$ 32,99"
+      },
+      {
+        "name": "Arroz Basmati",
+        "price": "R$ 9,99"
+      }
+    ],
+    "subtotal": "R$ 42,98",
+    "paymentMethod": "Pagamento na entrega"
+  },
+  {
+    "id": "#6007",
+    "status": "Em preparo",
+    "time": "10 min",
+    "deliveryTime": "15:45",
+    "address": "Rua dos Pinheiros, 404, Alto da Boa Vista - Recife/PE - CEP 78901-234",
+    "items": [
+      {
+        "name": "Peito de Frango ao Molho de Mostarda e Mel",
+        "price": "R$ 28,99"
+      },
+      {
+        "name": "Batatas Rústicas",
+        "price": "R$ 12,99"
+      }
+    ],
+    "subtotal": "R$ 41,98",
+    "paymentMethod": "Pagamento na entrega"
+  },
+  {
+    "id": "#6008",
+    "status": "Em preparo",
+    "time": "10 min",
+    "deliveryTime": "16:00",
+    "address": "Rua das Violetas, 505, Jardim Primavera - Fortaleza/CE - CEP 89012-345",
+    "items": [
+      {
+        "name": "Salmão ao Molho de Maracujá com Risoto de Cogumelos",
+        "price": "R$ 34,99"
+      },
+      {
+        "name": "Salada Grega",
+        "price": "R$ 15,99"
+      },
+      {
+        "name": "Pão de Alho",
+        "price": "R$ 7,99"
+      }
+    ],
+    "subtotal": "R$ 58,97",
+    "paymentMethod": "Pagamento na entrega"
+  },
+  {
+    "id": "#6009",
+    "status": "Em preparo",
+    "time": "10 min",
+    "deliveryTime": "16:15",
+    "address": "Avenida das Magnólias, 606, Centro Histórico - Goiânia/GO - CEP 90123-456",
+    "items": [
+      {
+        "name": "Filet Mignon ao Molho de Vinho Tinto",
+        "price": "R$ 39,99"
+      },
+      {
+        "name": "Batatas Rústicas",
+        "price": "R$ 12,99"
+      },
+      {
+        "name": "Bruschetta de Tomate e Manjericão",
+        "price": "R$ 15,99"
+      }
+    ],
+    "subtotal": "R$ 68,97",
+    "paymentMethod": "Pagamento na entrega"
+  },
+  {
+    "id": "#6010",
+    "status": "Em preparo",
+    "time": "10 min",
+    "deliveryTime": "16:30",
+    "address": "Rua das Flores, 707, Vila Bela - Natal/RN - CEP 67890-123",
+    "items": [
+      {
+        "name": "Linguine ao Molho de Tomate e Manjericão com Camarões",
+        "price": "R$ 29,99"
+      },
+      {
+        "name": "Arroz de Jasmim",
+        "price": "R$ 9,99"
+      },
+      {
+        "name": "Salada Caesar",
+        "price": "R$ 18,99"
+      }
+    ],
+    "subtotal": "R$ 58,97",
+    "paymentMethod": "Pagamento na entrega"
+  },
+  {
+    "id": "#6011",
+    "status": "Concluídos",
+    "time": "20 min",
+    "deliveryTime": "17:00",
+    "address": "Rua das Palmeiras, 1010, Jardim dos Lagos - São Paulo/SP - CEP 78901-234",
+    "items": [
+      {
+        "name": "Saint Peter ao Molho de Limão Siciliano",
+        "price": "R$ 32,99"
+      },
+      {
+        "name": "Puré de Batata",
+        "price": "R$ 8,99"
+      }
+    ],
+    "subtotal": "R$ 41,98",
+    "paymentMethod": "Pagamento na entrega"
+  },
+  {
+    "id": "#6012",
+    "status": "Concluídos",
+    "time": "20 min",
+    "deliveryTime": "17:15",
+    "address": "Rua das Acácias, 2020, Vila Nova - Rio de Janeiro/RJ - CEP 89012-345",
+    "items": [
+      {
+        "name": "Peito de Frango ao Molho de Mostarda e Mel",
+        "price": "R$ 28,99"
+      },
+      {
+        "name": "Arroz Pilaf",
+        "price": "R$ 10,99"
+      },
+      {
+        "name": "Salada Grega",
+        "price": "R$ 15,99"
+      }
+    ],
+    "subtotal": "R$ 55,97",
+    "paymentMethod": "Pagamento na entrega"
+  },
+  {
+    "id": "#6013",
+    "status": "Concluídos",
+    "time": "20 min",
+    "deliveryTime": "17:30",
+    "address": "Avenida das Palmeiras, 3030, Centro - Belo Horizonte/MG - CEP 90123-456",
+    "items": [
+      {
+        "name": "Salmão ao Molho de Maracujá com Risoto de Cogumelos",
+        "price": "R$ 34,99"
+      },
+      {
+        "name": "Pão de Alho",
+        "price": "R$ 7,99"
+      },
+      {
+        "name": "Bruschetta de Tomate e Manjericão",
+        "price": "R$ 15,99"
+      }
+    ],
+    "subtotal": "R$ 58,97",
+    "paymentMethod": "Pagamento na entrega"
+  },
+  {
+    "id": "#6014",
+    "status": "Concluídos",
+    "time": "20 min",
+    "deliveryTime": "17:45",
+    "address": "Rua dos Cedros, 4040, Vila Nova - Curitiba/PR - CEP 12345-678",
+    "items": [
+      {
+        "name": "Filet Mignon ao Molho de Vinho Tinto",
+        "price": "R$ 39,99"
+      },
+      {
+        "name": "Batatas Rústicas",
+        "price": "R$ 12,99"
+      }
+    ],
+    "subtotal": "R$ 52,98",
+    "paymentMethod": "Pagamento na entrega"
+  }
+]
